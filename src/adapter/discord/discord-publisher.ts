@@ -77,7 +77,7 @@ export class DiscordPublisher implements GameStatusPublisher {
                 .setColor(Colors.DarkGrey)
                 .setTitle('Server is offline right now, waiting for first status');
         } else {
-            let name = status.playerCount + '/' + status.maxPlayers;
+            let name = status.playerCount + 'players online';
             if (status.queuedPlayers) {
                 name = `${name} (+${status.queuedPlayers})`;
             }
