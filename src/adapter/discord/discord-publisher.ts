@@ -46,7 +46,7 @@ export class DiscordPublisher implements GameStatusPublisher {
                     .setColor(Colors.Grey)
                     .setTitle('Querying server...')
                     .setFooter({
-                        text: 'Developed by FlorianSW',
+                        text: 'join.monolithservers.com',
                     })
             ],
         });
@@ -62,7 +62,7 @@ export class DiscordPublisher implements GameStatusPublisher {
     async publish(status: GameStatus | undefined): Promise<void> {
         const embed: EmbedBuilder = new EmbedBuilder()
             .setFooter({
-                text: 'Developed by FlorianSW',
+                text: 'join.monolithservers.com',
             });
         if (status === undefined) {
             await this.client.user?.setPresence({
@@ -77,7 +77,7 @@ export class DiscordPublisher implements GameStatusPublisher {
                 .setColor(Colors.DarkGrey)
                 .setTitle('Server is offline right now, waiting for first status');
         } else {
-            let name = status.playerCount + 'players online';
+            let name = status.playerCount + ' players online';
             if (status.queuedPlayers) {
                 name = `${name} (+${status.queuedPlayers})`;
             }

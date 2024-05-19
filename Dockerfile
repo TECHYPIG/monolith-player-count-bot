@@ -1,11 +1,13 @@
-FROM node:16-alpine as build
+# Stage 1: Build
+FROM node:18-alpine as build
 
 WORKDIR /code
 RUN apk add --no-cache git
 COPY . .
 RUN npm ci && npm run build
 
-FROM node:16-alpine
+# Stage 2: Production
+FROM node:18-alpine
 
 WORKDIR /app
 RUN apk add --no-cache --virtual build-dependencies git
